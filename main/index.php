@@ -129,7 +129,7 @@ if($position=='admin') {
 			<ul class="breadcrumb">
 			<li class="active">Dashboard</li>
 			</ul>
-			<font style=" font:bold 44px 'Aleo'; text-shadow:1px 1px 25px #000; color:#fff;"><center>EREC`s Pharmacy</center></font>
+			<font style=" font:bold 44px 'Aleo'; text-shadow:1px 1px 25px #000; color:#fff;"><center>TIPS</center></font>
 <div id="mainmain">
 
 
