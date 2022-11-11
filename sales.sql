@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_code` varchar(200) NOT NULL,
   `gen_name` varchar(200) NOT NULL,
   `product_name` varchar(200) NOT NULL,
-  `cost` varchar(100) NOT NULL,
+  `cost` varchar(100) NOT NULL, --is not actively used--
   `o_price` varchar(100) NOT NULL,
   `price` varchar(100) NOT NULL,
   `profit` varchar(100) NOT NULL,
