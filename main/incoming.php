@@ -19,9 +19,10 @@ $p=$row['profit'];
 }
 
 //edit qty
+//probably causing the decrease in quantity without purchases
 $sql = "UPDATE products 
         SET qty=qty-?
-		WHERE product_id=?";
+		WHERE product_id=?"; 
 $q = $db->prepare($sql);
 $q->execute(array($c,$b));
 $fffffff=$asasa-$discount;
