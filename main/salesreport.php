@@ -4,7 +4,7 @@
 ?>
 <head>
 <title>
-POS
+TIPS Liqourstore
 </title>
  <link href="css/bootstrap.css" rel="stylesheet">
 
