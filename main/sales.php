@@ -14,7 +14,7 @@
   })
 </script>
 <title>
-POS
+TIPS Liqourstore
 </title>
 <?php
 	require_once('auth.php');
