@@ -5,7 +5,7 @@
 require_once('auth.php');
 ?>
 <title>
-POS
+TIPS Liqourstore
 </title>
 </title>
  <link href="css/bootstrap.css" rel="stylesheet">
