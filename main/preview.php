@@ -151,8 +151,8 @@ window.onload=startclock;
 	<div style="width: 100%; height: 190px;" >
 	<div style="width: 900px; float: left;">
 	<center><div style="font:bold 25px 'Aleo';">Sales Receipt</div>
-	EREC`s Pharmacy	<br>
-	La Castellana, Negros Occidental	<br>	<br>
+	TIPS liqourstore<br>
+	Juja, Kiambu	<br>	<br>
 	</center>
 	<div>
 	<?php
@@ -263,7 +263,7 @@ window.onload=startclock;
 					<font style="font-size:20px;">
 					<?php
 					if($pt=='cash'){
-					echo 'Change:';
+					echo 'Balance:';
 					}
 					if($pt=='credit'){
 					echo 'Due Date:';
