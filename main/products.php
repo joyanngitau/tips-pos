@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>
-POS
+TIPS Liqourstore
 </title>
 
 <?php 
