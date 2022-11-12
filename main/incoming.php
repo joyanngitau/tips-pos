@@ -28,9 +28,9 @@ $fffffff=$asasa-$discount;
 $d=$fffffff*$c;
 $profit=$p*$c;
 // query
-$sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,profit,product_code,gen_name,date) VALUES (:a,:b,:c,:d,:e,:f,:h,:i,:j,:k)";
+$sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,profit,product_code,gen_name,date,discount) VALUES (:a,:b,:c,:d,:e,:f,:h,:i,:j,:k,:discount)";
 $q = $db->prepare($sql);
-$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':h'=>$profit,':i'=>$code,':j'=>$gen,':k'=>$date));
+$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':h'=>$profit,':i'=>$code,':j'=>$gen,':k'=>$date,':discount'=>$discount));
 header("location: sales.php?id=$w&invoice=$a");
 
 
