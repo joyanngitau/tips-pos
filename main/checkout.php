@@ -113,6 +113,7 @@ background-repeat:no-repeat;
 $asas=$_GET['pt'];
 if($asas=='credit') {
 ?>Due Date: <input type="date" name="due" placeholder="Due Date" style="width: 268px; height:30px; margin-bottom: 15px;" /><br>
+Cash:<input type="number" name="amount_paid" placeholder="Cash" style="width: 268px; height:30px;  margin-bottom: 15px;"  required/><br>
 <?php
 }
 if($asas=='cash') {

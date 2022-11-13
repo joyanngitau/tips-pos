@@ -158,7 +158,8 @@ if($position=='admin') {
 													
 <form action="incoming.php" method="post" >
 											
-<input type="hidden" name="pt" value="<?php echo $_GET['id']; ?>" />
+<input type="radio" name="pt" value="<?php echo $_GET['id']; ?>" />Cash <br>
+<input type="radio" name="pt" value="<?php echo $_GET['id']; ?>" />Credit <br>
 <input type="hidden" name="invoice" value="<?php echo $_GET['invoice']; ?>" />
 <select name="product" style="width:650px; "class="chzn-select" required>
 <option></option>
