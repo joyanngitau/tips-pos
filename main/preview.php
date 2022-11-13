@@ -308,6 +308,3 @@ window.onload=startclock;
 		</div>	
 </div>
 </div>
-
-<!-- hi  -->
-<!-- hi  -->
