@@ -1,4 +1,4 @@
- <div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -6,10 +6,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><b>Point of Sales</b></a>
+          <a class="brand" href="#"><b>TIPS</b></a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a><i class="icon-user icon-large"></i> Welcome:<strong> <?php echo $_SESSION['SESS_LAST_NAME'];?></strong></a></li>
+              <li><a><i class="icon-user icon-large"></i> Welcome <?php echo $_SESSION['SESS_LAST_NAME'];?></a></li>
 			 <li><a> <i class="icon-calendar icon-large"></i>
 								<?php
 								$Today = date('y:m:d',mktime());
