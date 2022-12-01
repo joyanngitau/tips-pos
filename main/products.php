@@ -197,7 +197,7 @@ window.onload=startclock;
 <table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
 	<thead>
 		<tr>
-			<th width="12%"> Brand Name </th>
+			<th width="12%"> Product code </th>
 			<th width="14%"> Generic Name </th>
 			<th width="13%"> Category / Description </th>
 			<th width="7%"> Supplier </th>
