@@ -1,3 +1,4 @@
+<!-- preview of the receipt generated -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,10 +51,10 @@ $cash=$row['due_date'];
 $cashier=$row['cashier'];
 
 $pt=$row['type'];
-$am=$row['amount'];
+$am=$row['amount']; //am = amount = item price
 if($pt=='cash'){
-$cash=$row['due_date'];
-$amount=$cash-$am;
+$cash=$row['due_date']; //due date is amount paid
+$amount=$cash-$am; //change = cash - item price
 }
 }
 ?>
@@ -272,9 +273,9 @@ window.onload=startclock;
 					</strong></td>
 					<td colspan="2"><strong style="font-size: 15px; color: #222222;">
 					<?php
-					function formatMoney($number, $fractional=false) {
+					function formatMoney($number, $fractional=false) { //probably a decimal conversion function
 						if ($fractional) {
-							$number = sprintf('%.2f', $number);
+							$number = sprintf('%.2f', $number); //it's like printf but it's saving that string into a variable
 						}
 						while (true) {
 							$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
