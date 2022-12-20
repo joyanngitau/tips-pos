@@ -47,15 +47,21 @@ for($i=0; $row = $result->fetch(); $i++){
 $cname=$row['name'];
 $invoice=$row['invoice_number'];
 $date=$row['date'];
-$cash=$row['due_date'];
+$cash=$row['cash_paid'];
+ //changed from duedate to cashpaid
+$due=$row['due_date'];
 $cashier=$row['cashier'];
 
 $pt=$row['type'];
 $am=$row['amount']; //am = amount = item price
 if($pt=='cash'){
-$cash=$row['due_date']; //due date is amount paid
+$cash=$row['cash_paid']; //due date is amount paid //changed it too cash_paid
 $amount=$cash-$am; //change = cash - item price
 }
+// else{
+// 	// $cash = $row['balance'];
+// 	$amount=$am - $cash;
+// }
 }
 ?>
 <?php
@@ -246,8 +252,7 @@ window.onload=startclock;
 					?>
 					</strong></td>
 				</tr>
-				<?php if($pt=='cash'){
-				?>
+				
 				<tr>
 					<td colspan="5"style=" text-align:right;"><strong style="font-size: 12px; color: #222222;">Cash Tendered:&nbsp;</strong></td>
 					<td colspan="2"><strong style="font-size: 12px; color: #222222;">
@@ -256,9 +261,7 @@ window.onload=startclock;
 					?>
 					</strong></td>
 				</tr>
-				<?php
-				}
-				?>
+				
 				<tr>
 					<td colspan="5" style=" text-align:right;"><strong style="font-size: 12px; color: #222222;">
 					<font style="font-size:20px;">
@@ -288,7 +291,7 @@ window.onload=startclock;
 						return $number;
 					}
 					if($pt=='credit'){
-					echo $cash;
+					echo $due; //yess, error fixed, that receipt looks great bitch
 					}
 					if($pt=='cash'){
 					echo formatMoney($amount, true);

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AlphaWare</title>
+	<title>TIPS Liqourstore</title>
 	<link rel="icon" href="img/logo.jpg" />
 	<link rel = "stylesheet" type = "text/css" href="css/style.css" media="all">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -27,7 +27,7 @@
 <body>
 	<div id="header">
 		<img src="img/logo.jpg">
-		<label>alphaware</label>
+		<label>tipsliqour</label>
 			
 			<?php
 				$id = (int) $_SESSION['id'];
@@ -235,24 +235,24 @@ if (isset($_SESSION['cart']))
 	<div id="footer">
 		<div class="foot">
 			<label style="font-size:17px;"> Copyright &copy; </label>
-			<p style="font-size:25px;">Alphaware Inc. 2015</p>
+			<p style="font-size:25px;">TIPS Liqourstore</p>
 		</div>
 			
 			<div id="foot">
 				<h4>Links</h4>
 					<ul>
-						<a href="http://www.facebook.com/alphaware"><li>Facebook</li></a>
-						<a href="http://www.twitter.com/alphaware"><li>Twitter</li></a>
-						<a href="http://www.pinterest.com/alphaware"><li>Pinterest</li></a>
-						<a href="http://www.tumblr.com/alphaware"><li>Tumblr</li></a>
+						<a href="http://www.facebook.com/tipsliqour"><li>Facebook</li></a>
+						<a href="http://www.twitter.com/tipsliqour"><li>Twitter</li></a>
+						<a href="http://www.pinterest.com/tipsliqour"><li>Pinterest</li></a>
+						<a href="http://www.tumblr.com/tipsliqour"><li>Tumblr</li></a>
 					</ul>
 			</div>
 			
 			<div id="develop">
 				<h4>Developed By:</h4>
 					<ul>
-						<a href="#"><li>Allen Joshua Nicor</li><a>
-						<a href="#"><li>Ryan Carl Biaquis</li><a>
+						<a href="#"><li>JoyAnn Gitau</li><a>
+						<a href="#"><li>Anne Ogongo</li><a>
 					</ul>
 			</div>
 	</div>

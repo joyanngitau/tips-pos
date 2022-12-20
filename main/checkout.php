@@ -104,7 +104,7 @@ background-repeat:no-repeat;
 <input type="hidden" name="cashier" value="<?php echo $_GET['cashier']; ?>" />
 <input type="hidden" name="profit" value="<?php echo $_GET['totalprof']; ?>" />
 <center>
-<input type="text" size="25" value="" name="cname" id="country" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter Customer Name" style="width: 268px; height:30px;" />
+<input type="hidden" size="25" value="" name="cname" id="country" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter Customer Name" style="width: 268px; height:30px;" />
      
       <div class="suggestionsBox" id="suggestions" style="display: none;">
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
@@ -112,14 +112,15 @@ background-repeat:no-repeat;
 <?php
 $asas=$_GET['pt'];
 if($asas=='credit') {
-?>Due Date: <input type="date" name="due" placeholder="Due Date" style="width: 268px; height:30px; margin-bottom: 15px;" /><br>
-Cash:<input type="number" name="amount_paid" placeholder="Cash" style="width: 268px; height:30px;  margin-bottom: 15px;"  required/><br>
+?>
+Due Date: <input type="date" name="due" placeholder="Due Date" style="width: 268px; height:30px; margin-bottom: 15px;" /><br>
+Cash paid:<input type="number" name="amount_paid" placeholder="Cash" style="width: 268px; height:30px;  margin-bottom: 15px;"  required/><br>
 <?php
 }
 if($asas=='cash') {
 ?>
 
-<input type="number" name="cash" placeholder="Cash" style="width: 268px; height:30px;  margin-bottom: 15px;"  required/><br>
+<input type="number" name="amount_paid" placeholder="Cash paid" style="width: 268px; height:30px;  margin-bottom: 15px;"  required/><br>
 <?php
 }
 ?><button class="btn btn-success btn-block btn-large" style="width:267px;"><i class="icon icon-save icon-large"></i> Save</button>

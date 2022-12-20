@@ -177,7 +177,7 @@ window.onload=startclock;
 			
 			<?php 
 			include('../connect.php');
-				$result = $db->prepare("SELECT * FROM products where qty < 10 ORDER BY product_id DESC");
+				$result = $db->prepare("SELECT * FROM products where qty < 3 ORDER BY product_id DESC");
 				$result->execute();
 				$rowcount123 = $result->rowcount();
 
@@ -187,7 +187,7 @@ window.onload=startclock;
 			</div>
 			
 			<div style="text-align:center;">
-			<font style="color:rgb(255, 95, 66);; font:bold 22px 'Aleo';">[<?php echo $rowcount123;?>]</font> Products are below QTY of 10 
+			<font style="color:rgb(255, 95, 66);; font:bold 22px 'Aleo';">[<?php echo $rowcount123;?>]</font> Products are below QTY of 3 
 			</div>
 </div>
 
@@ -206,7 +206,7 @@ window.onload=startclock;
 			<th width="6%"> Original Price </th>
 			<th width="6%"> Selling Price </th>
 			<th width="6%"> QTY </th>
-			<th width="5%"> Qty Left </th>
+			<th width="5%"> Qty sold </th>
 			<th width="8%"> Total </th>
 			<th width="8%"> Action </th>
 		</tr>
@@ -234,7 +234,7 @@ window.onload=startclock;
 				for($i=0; $row = $result->fetch(); $i++){
 				$total=$row['total'];
 				$availableqty=$row['qty'];
-				if ($availableqty < 10) {
+				if ($availableqty < 3) {
 				echo '<tr class="alert alert-warning record" style="color: #fff; background:rgb(255, 95, 66);">';
 				}
 				else {
@@ -257,8 +257,8 @@ window.onload=startclock;
 			$pprice=$row['price'];
 			echo formatMoney($pprice, true);
 			?></td>
-			<td><?php echo $row['qty_sold']; ?></td>
 			<td><?php echo $row['qty']; ?></td>
+			<td><?php echo $row['qty_sold']; ?></td>
 			<td>
 			<?php
 			$total=$row['total'];
