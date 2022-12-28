@@ -4073,6 +4073,8 @@ input[type="submit"].btn.btn-mini {
   *border-left-color: #ffffff;
 }
 
+/* navbar */
+
 .nav > .disabled > a {
   color: #999999;
 }
