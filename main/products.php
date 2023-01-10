@@ -205,7 +205,7 @@ window.onload=startclock;
 			<th width="7%"> Original Price </th>
 			<th width="7%"> Selling Price </th>
 			<th width="7%"> QTY </th>
-			<!-- <th width="6%"> Qty sold </th> -->
+			<th width="6%"> Qty sold </th>
 			<th width="8%"> Total </th>
 			<th width="8%"> Action </th>
 		</tr>
@@ -254,6 +254,7 @@ window.onload=startclock;
 			echo formatMoney($pprice, true);
 			?></td>
 			<td><?php echo $row['qty']; ?></td>
+			<td><?php echo $row['qty_sold']; ?></td>
 			
 			<td>
 			<?php

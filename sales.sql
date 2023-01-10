@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `position`) VALUES
 (1, 'admin', 'admin', 'Admin', 'admin'),
-(2, 'cashier', 'cashier', 'Cashier Pharmacy', 'Cashier'),
+(2, 'cashier', 'cashier', 'Cashier ', 'Cashier'),
 (3, 'admin', 'admin123', 'Administrator', 'admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
