@@ -12,8 +12,6 @@ $result->bindParam(':userid', $b);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
 $asasa=$row['price'];
-$code=$row['product_code'];
-$gen=$row['gen_name'];
 $name=$row['product_name'];
 $p=$row['profit'];
 }
@@ -29,9 +27,9 @@ $fffffff=$asasa-$discount;
 $d=$fffffff*$c;
 $profit=$p*$c;
 // query
-$sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,profit,product_code,gen_name,date,discount) VALUES (:a,:b,:c,:d,:e,:f,:h,:i,:j,:k,:discount)";
+$sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,profit,date,discount) VALUES (:a,:b,:c,:d,:e,:f,:h,:k,:discount)";
 $q = $db->prepare($sql);
-$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':h'=>$profit,':i'=>$code,':j'=>$gen,':k'=>$date,':discount'=>$discount));
+$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':h'=>$profit,':k'=>$date,':discount'=>$discount));
 header("location: sales.php?id=$w&invoice=$a");
 
 

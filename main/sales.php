@@ -162,7 +162,7 @@ if($position=='admin') {
 <input name="pt" value="<?php echo $_GET['id']; ?>" />
 
 <input type="hidden" name="invoice" value="<?php echo $_GET['invoice']; ?>" />
-<select name="product" style="width:650px; "class="chzn-select" required>
+<select name="product" style="width:450px; "class="chzn-select" required>
 <option></option>
 	<?php
 	include('../connect.php');
@@ -171,22 +171,22 @@ if($position=='admin') {
 		$result->execute();
 		for($i=0; $row = $result->fetch(); $i++){
 	?>
-		<option value="<?php echo $row['product_id'];?>"><?php echo $row['product_code']; ?> - <?php echo $row['gen_name']; ?> - <?php echo $row['product_name']; ?> | Expires at: <?php echo $row['expiry_date']; ?></option>
+		<option value="<?php echo $row['product_id'];?>"><?php echo $row['product_name']; ?> | Expires at: <?php echo $row['expiry_date']; ?></option>
 	<?php
 				}
 			?>
 </select>
 <input type="number" name="qty" value="1" min="1" placeholder="Qty" autocomplete="off" style="width: 68px; height:30px; padding-top:6px; padding-bottom: 4px; margin-right: 4px; font-size:15px;" / required>
-<input type="hidden" name="discount" value="" autocomplete="off" style="width: 68px; height:30px; padding-top:6px; padding-bottom: 4px; margin-right: 4px; font-size:15px;" />
+<input type="hidden" name="discount" value="" autocomplete="off" style="width: 6<?php echo $row['product_code']; ?> - <?php echo $row['gen_name']; ?>8px; height:30px; padding-top:6px; padding-bottom: 4px; margin-right: 4px; font-size:15px;" />
 <input type="hidden" name="date" value="<?php echo date("m/d/y"); ?>" />
 <Button type="submit" class="btn btn-info" style="width: 123px; height:35px; margin-top:-5px;" /><i class="icon-plus-sign icon-large"></i> Add</button>
 </form>
+
+<!-- table to show products chosen -->
 <table class="table table-bordered" id="resultTable" data-responsive="table">
 	<thead>
 		<tr>
 			<th> Product Name </th>
-			<th> Generic Name </th>
-			<th> Category / Description </th>
 			<th> Price </th>
 			<th> Qty </th>
 			<th> Amount </th>
@@ -206,8 +206,6 @@ if($position=='admin') {
 			?>
 			<tr class="record">
 			<td hidden><?php echo $row['product']; ?></td>
-			<td><?php echo $row['product_code']; ?></td>
-			<td><?php echo $row['gen_name']; ?></td>
 			<td><?php echo $row['name']; ?></td>
 			<td>
 			<?php
@@ -238,13 +236,13 @@ if($position=='admin') {
 			<th>  </th>
 			<th>  </th>
 			<th>  </th>
-			<th>  </th>
+			<!-- <th>  </th> -->
 			<td> Total Amount: </td>
 			<td> Total Profit: </td>
 			<th>  </th>
 		</tr>
 			<tr>
-				<th colspan="5"><strong style="font-size: 12px; color: #222222;">Total:</strong></th>
+				<th colspan="4"><strong style="font-size: 12px; color: #222222;">Total:</strong></th>
 				<td colspan="1"><strong style="font-size: 12px; color: #222222;">
 				<?php
 				function formatMoney($number, $fractional=false) {

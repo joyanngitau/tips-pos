@@ -193,7 +193,6 @@ window.onload=startclock;
 	<table border="1" cellpadding="4" cellspacing="0" style="font-family: arial; font-size: 12px;	text-align:left;" width="100%">
 		<thead>
 			<tr>
-				<th width="90"> Product Code </th>
 				<th> Product Name </th>
 				<th> Qty </th>
 				<th> Price </th>
@@ -211,7 +210,7 @@ window.onload=startclock;
 					for($i=0; $row = $result->fetch(); $i++){
 				?>
 				<tr class="record">
-				<td><?php echo $row['product_code']; ?></td>
+				
 				<td><?php echo $row['name']; ?></td>
 				<td><?php echo $row['qty']; ?></td>
 				<td>

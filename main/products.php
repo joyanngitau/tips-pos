@@ -197,16 +197,15 @@ window.onload=startclock;
 <table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
 	<thead>
 		<tr>
-			<th width="12%"> Product code </th>
-			<th width="14%"> Generic Name </th>
-			<th width="13%"> Category / Description </th>
-			<th width="7%"> Supplier </th>
+			<th width="14%"> Product Name </th>
+			<!-- <th width="13%"> Category / Description </th> -->
+			<th width="10%"> Supplier </th>
 			<th width="9%"> Date Received </th>
 			<th width="10%"> Expiry Date </th>
-			<th width="6%"> Original Price </th>
-			<th width="6%"> Selling Price </th>
-			<th width="6%"> QTY </th>
-			<th width="5%"> Qty sold </th>
+			<th width="7%"> Original Price </th>
+			<th width="7%"> Selling Price </th>
+			<th width="7%"> QTY </th>
+			<!-- <th width="6%"> Qty sold </th> -->
 			<th width="8%"> Total </th>
 			<th width="8%"> Action </th>
 		</tr>
@@ -242,11 +241,8 @@ window.onload=startclock;
 				}
 			?>
 		
-
-			<td><?php echo $row['product_code']; ?></td>
-			<td><?php echo $row['gen_name']; ?></td>
 			<td><?php echo $row['product_name']; ?></td>
-					<td><?php echo $row['supplier']; ?></td>
+			<td><?php echo $row['supplier']; ?></td>
 			<td><?php echo $row['date_arrival']; ?></td>
 			<td><?php echo $row['expiry_date']; ?></td>
 			<td><?php
@@ -258,13 +254,14 @@ window.onload=startclock;
 			echo formatMoney($pprice, true);
 			?></td>
 			<td><?php echo $row['qty']; ?></td>
-			<td><?php echo $row['qty_sold']; ?></td>
+			
 			<td>
 			<?php
 			$total=$row['total'];
 			echo formatMoney($total, true);
 			?>
-			</td>			<td><a rel="facebox" title="Click to edit the product" href="editproduct.php?id=<?php echo $row['product_id']; ?>"><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>
+			</td>			
+			<td><a rel="facebox" title="Click to edit the product" href="editproduct.php?id=<?php echo $row['product_id']; ?>"><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>
 			<a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click to Delete the product"><button class="btn btn-danger"><i class="icon-trash"></i></button></a></td>
 			</tr>
 			<?php

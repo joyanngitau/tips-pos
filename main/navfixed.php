@@ -9,7 +9,7 @@
           <a class="brand" href="#"><b>TIPS</b></a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li><a><i class="icon-user icon-large"></i> Welcome <?php echo $_SESSION['SESS_LAST_NAME'];?></a></li>
+              <li><a><i class="icon-user icon-large"></i> Welcome <?php echo $_SESSION['SESS_FIRST_NAME'];?></a></li>
 			 <li><a> <i class="icon-calendar icon-large"></i>
 								<?php
 								$Today = date('y:m:d',mktime());

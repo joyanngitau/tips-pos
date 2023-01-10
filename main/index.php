@@ -118,15 +118,75 @@
 	<div class="span10">
 		<div class="space" style="padding-top:5%" ><font style="font:bold 44px 'Aleo'; color:#000;"><center>TIPS LIQOURSTORE</center></font></div>
 			<div id="mainmain">
-				<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><i class="icon-shopping-cart icon-2x"></i><br> Sales</a>               
-				<a href="products.php"><i class="icon-list-alt icon-2x"></i><br> Products</a>      
-				<a href="customer.php"><i class="icon-group icon-2x"></i><br> Customers</a>     
-				<a href="supplier.php"><i class="icon-group icon-2x"></i><br> Suppliers</a>     
-				<a href="salesreport.php?d1=0&d2=0"><i class="icon-bar-chart icon-2x"></i><br> Sales Report</a>
-				<a href="../index.php"><font color="red"><i class="icon-off icon-2x"></i></font><br> Logout</a> 
 	<?php
 	}
 	?>
+	<div style="margin-top: -19px; margin-bottom: 21px;">
+	<table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
+	<thead>
+		<tr>
+			<th width="14%"> Product Name </th>
+			<th width="10%"> Expiry Date </th>
+			<th width="7%"> Selling Price </th>
+			<th width="7%"> QTY </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<?php
+			function formatMoney($number, $fractional=false) {
+					if ($fractional) {
+						$number = sprintf('%.2f', $number);
+					}
+					while (true) {
+						$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+						if ($replaced != $number) {
+							$number = $replaced;
+						} else {
+							break;
+						}
+					}
+					return $number;
+				}
+				include('../connect.php');
+				$result = $db->prepare("SELECT *, price * qty as total FROM products ORDER BY product_id DESC");
+				$result->execute();
+				for($i=0; $row = $result->fetch(); $i++){
+				$total=$row['total'];
+				$availableqty=$row['qty'];
+				if ($availableqty < 3) {
+				echo '<tr class="alert alert-warning record" style="color: #fff; background:rgb(255, 95, 66);">';
+				}
+				else {
+				echo '<tr class="record">';
+				}
+			?>
+		
+			<td><?php echo $row['product_name']; ?></td>
+			
+			<td><?php 
+			$expirydt=$row['expiry_date'];
+			if ($expirydt == '2030-01-06') {
+				echo 'None';
+				}
+			else{
+				echo $row['expiry_date'];
+				} ?></td>
+			
+			<td><?php
+			$pprice=$row['price'];
+			echo formatMoney($pprice, true);
+			?></td>
+			<td><?php echo $row['qty']; ?></td>
+			</tr>
+			<?php
+				}
+			?>
+		
+		
+		
+	</tbody>
+</table></div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
