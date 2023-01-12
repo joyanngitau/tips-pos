@@ -147,13 +147,26 @@ $finalcode='RS-'.createRandomPassword();
 <div style="font-weight:bold; text-align:center;font-size:14px;margin-bottom: 15px;">
 Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['d2'] ?>
 </div>
+
+<!-- most sold products 			 -->
+			<?php 
+			include('../connect.php');
+				$result = $db->prepare("SELECT * FROM products ORDER BY qty_sold DESC LIMIT 1");
+				$result->execute();
+				$rowcount123 = $result->fetch();
+
+			?>
+			
+			<div style="text-align:center;">Most sold product:
+			<font style="color:green; font:bold 22px 'Aleo';">[<?php echo $rowcount123['product_name'];?>]</font> 			</div>
+
+<!-- new table -->
+<p> Sales according to generated time </p>
 <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
 	<thead>
 		<tr>
-			<th width="13%"> Transaction ID </th>
-			<th width="13%"> Transaction Date </th>
-			<th width="20%"> Customer Name </th>
-			<th width="16%"> Invoice Number </th>
+			<th width="13%"> Product Name </th>
+			<th width="20%"> Quantity </th>
 			<th width="18%"> Amount </th>
 			<th width="13%"> Profit </th>
 		</tr>
@@ -164,17 +177,15 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 				include('../connect.php');
 				$d1=$_GET['d1'];
 				$d2=$_GET['d2'];
-				$result = $db->prepare("SELECT * FROM sales WHERE date BETWEEN :a AND :b ORDER by transaction_id DESC ");
+				$result = $db->prepare("SELECT * FROM sales_order WHERE date BETWEEN :a AND :b ORDER by transaction_id DESC ");
 				$result->bindParam(':a', $d1);
 				$result->bindParam(':b', $d2);
 				$result->execute();
 				for($i=0; $row = $result->fetch(); $i++){
 			?>
 			<tr class="record">
-			<td>STI-00<?php echo $row['transaction_id']; ?></td>
-			<td><?php echo $row['date']; ?></td>
 			<td><?php echo $row['name']; ?></td>
-			<td><?php echo $row['invoice_number']; ?></td>
+			<td><?php echo $row['qty']; ?></td>
 			<td><?php
 			$dsdsd=$row['amount'];
 			echo formatMoney($dsdsd, true);
@@ -191,26 +202,26 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 	</tbody>
 	<thead>
 		<tr>
-			<th colspan="4" style="border-top:1px solid #999999"> Total: </th>
+			<th colspan="2" style="border-top:1px solid #999999"> Total: </th>
 			<th colspan="1" style="border-top:1px solid #999999"> 
 			<?php
-				function formatMoney($number, $fractional=false) {
-					if ($fractional) {
-						$number = sprintf('%.2f', $number);
-					}
-					while (true) {
-						$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
-						if ($replaced != $number) {
-							$number = $replaced;
-						} else {
-							break;
-						}
-					}
-					return $number;
+			function formatMoney($number, $fractional=false) {
+				if ($fractional) {
+					$number = sprintf('%.2f', $number);
 				}
+				while (true) {
+					$replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+					if ($replaced != $number) {
+						$number = $replaced;
+					} else {
+						break;
+					}
+				}
+				return $number;
+			}
 				$d1=$_GET['d1'];
 				$d2=$_GET['d2'];
-				$results = $db->prepare("SELECT sum(amount) FROM sales WHERE date BETWEEN :a AND :b");
+				$results = $db->prepare("SELECT sum(amount) FROM sales_order WHERE date BETWEEN :a AND :b");
 				$results->bindParam(':a', $d1);
 				$results->bindParam(':b', $d2);
 				$results->execute();
@@ -222,7 +233,7 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 			</th>
 				<th colspan="1" style="border-top:1px solid #999999">
 			<?php 
-				$resultia = $db->prepare("SELECT sum(profit) FROM sales WHERE date BETWEEN :c AND :d");
+				$resultia = $db->prepare("SELECT sum(profit) FROM sales_order WHERE date BETWEEN :c AND :d");
 				$resultia->bindParam(':c', $d1);
 				$resultia->bindParam(':d', $d2);
 				$resultia->execute();
@@ -236,6 +247,115 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 		</tr>
 	</thead>
 </table>
+
+<!-- table that shows last week's sales  -->
+<p> Last week's sales </p>
+<table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
+	<thead>
+		<tr>
+			<th width="13%"> Product Name </th>
+			<th width="20%"> Quantity </th>
+			<th width="18%"> Amount </th>
+			<th width="13%"> Profit </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<?php
+				include('../connect.php');
+				$d1=strtotime("monday last week");
+				$dt1=date("m/d/y", $d1);
+				
+				$d2=strtotime("sunday last week");
+				$dt2=date("m/d/y", $d2);
+
+				$result = $db->prepare("SELECT * FROM sales_order WHERE date BETWEEN :a AND :b ORDER by transaction_id DESC ");
+				
+				$result->bindParam(':a', $dt1);
+				$result->bindParam(':b', $dt2);
+				$result->execute();
+				for($i=0; $row = $result->fetch(); $i++){
+			?>
+			<tr class="record">
+			<td><?php echo $row['name']; ?></td>
+			<td><?php echo $row['qty']; ?></td>
+			<td><?php
+			$dsdsd=$row['amount'];
+			echo formatMoney($dsdsd, true);
+			?></td>
+			<td><?php
+			$zxc=$row['profit'];
+			echo formatMoney($zxc, true);
+			?></td>
+			</tr>
+			<?php
+				}
+			?>
+		
+	</tbody>
+	<thead>
+		<tr>
+			<th colspan="2" style="border-top:1px solid #999999"> Total: </th>
+			<th colspan="1" style="border-top:1px solid #999999"> 
+			<?php
+				$d1=strtotime("monday last week");
+				$dt1=date("m/d/y", $d1);
+				
+				$d2=strtotime("sunday last week");
+				$dt2=date("m/d/y", $d2);
+
+				$results = $db->prepare("SELECT sum(amount) FROM sales_order WHERE date BETWEEN :a AND :b");
+				$results->bindParam(':a', $dt1);
+				$results->bindParam(':b', $dt2);
+				$results->execute();
+				for($i=0; $rows = $results->fetch(); $i++){
+				$dsdsd=$rows['sum(amount)'];
+				echo formatMoney($dsdsd, true);
+				}
+				?>
+			</th>
+				<th colspan="1" style="border-top:1px solid #999999">
+			<?php 
+				$resultia = $db->prepare("SELECT sum(profit) FROM sales_order WHERE date BETWEEN :c AND :d");
+				$resultia->bindParam(':c', $dt1);
+				$resultia->bindParam(':d', $dt2);
+				$resultia->execute();
+				for($i=0; $cxz = $resultia->fetch(); $i++){
+				$zxc=$cxz['sum(profit)'];
+				echo formatMoney($zxc, true);
+				}
+				?>
+		
+				</th>
+		</tr>
+	</thead>
+</table>
+
+<!-- table that shows most sold products  -->
+<p> Most sold products </p>
+<table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
+	<thead>
+		<tr>
+			<th width="13%"> Product Name </th>
+			<th width="20%"> Quantity sold</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	<?php 
+			include('../connect.php');
+				$result = $db->prepare("SELECT * FROM products ORDER BY qty_sold DESC");
+				$result->execute();
+				$row = $result->fetch();
+
+			?>
+			<tr class="record">
+			<td><?php echo $row['product_name']; ?></td>
+			<td><?php echo $row['qty_sold']; ?></td>
+			</tr>		
+	</tbody>
+</table>
+
 </div>
 <div class="clearfix"></div>
 </div>

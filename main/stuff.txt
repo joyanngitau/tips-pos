@@ -1,0 +1,18 @@
+<?php
+				include('../connect.php');
+				$d1=strtotime("monday last week");
+				$dt1=date("m/d/y", $d1);
+				
+				$d2=strtotime("sunday last week");
+				$dt2=date("m/d/y", $d2);
+
+				$result = $db->prepare("SELECT * FROM products WHERE date BETWEEN :a AND :b ORDER by qty_sold DESC LIMIT 1");
+				
+				$result->bindParam(':a', $dt1);
+				$result->bindParam(':b', $dt2);
+
+				$result->execute();
+				$rowcount123 = $result->fetch();
+			?>
+			<div style="text-align:center;">Most sold product:
+			<font style="color:green; font:bold 22px 'Aleo';">[<?php echo $rowcount123['product_name'];?>]</font> 			</div>
