@@ -16,7 +16,7 @@
 	</style>
 	<link href="css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
 	<!-- my styling -->
-	<link href="css/mystyle.css" rel="stylesheet">
+	<link href="css/mystyle.css" type="text/css" rel="stylesheet">
 	<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
 	<script src="lib/jquery.js" type="text/javascript"></script>
