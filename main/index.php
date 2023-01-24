@@ -127,7 +127,7 @@
 	<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><br><i class="icon-shopping-cart icon-2x"></i>   Make Sale</a><br><br>
 
 	<!-- plus icon -->
-	<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?> ><br><i class="icon-plus icon-2x black-icon"></i>   Make Sale</a><br><br>
+	<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><br><i class="icon-plus icon-2x black-icon"></i>   Make Sale</a><br><br>
 	<div style="margin-top: -19px; margin-bottom: 21px;">
 	<table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
 	<thead>
