@@ -46,7 +46,7 @@ if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count
 ?>
 <form action="login.php" method="post">
 
-			<font style=" font:bold 44px 'Aleo'; color:#000;"><center>TIPS</center></font>
+			<font style=" font:bold 44px 'Aleo'; color:#000;"><center>TIPS LIQUOR</center></font>
 		<br>
 
 		

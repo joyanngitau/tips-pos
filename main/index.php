@@ -14,7 +14,9 @@
 			margin-top: 1px;
     	}
 	</style>
-	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
+	<!-- my styling -->
+	<link href="css/mystyle.css" rel="stylesheet">
 	<link href="../style.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
 	<script src="lib/jquery.js" type="text/javascript"></script>
@@ -116,13 +118,16 @@
         </div><!--/.well -->
     </div><!--/span-->
 	<div class="span10">
-		<div class="space" style="padding-top:5%" ><font style="font:bold 44px 'Aleo'; color:#000;"><center>TIPS LIQOURSTORE</center></font></div>
+		<div class="space" style="padding-top:5%" ><font style="font:bold 44px 'Aleo'; color:#000;"><center>TIPS LIQUOR</center></font></div>
 			<div id="mainmain">
 	<?php
 	}
 	?>
 	
 	<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><br><i class="icon-shopping-cart icon-2x"></i>   Make Sale</a><br><br>
+
+	<!-- plus icon -->
+	<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?> ><br><i class="icon-plus icon-2x black-icon"></i>   Make Sale</a><br><br>
 	<div style="margin-top: -19px; margin-bottom: 21px;">
 	<table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
 	<thead>
