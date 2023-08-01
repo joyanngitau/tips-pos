@@ -1,1 +1,2 @@
-this is the readme file
+This project is a point of sale system for a liquor store built with PHP 
+
